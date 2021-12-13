@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "main": "./dist/index.js",
+  "type": "module",
+  "scripts": {
+    "compile": "cross-env-shell babel src -d dist --source-maps --extensions '.ts'",
+    "build": "npm run compile",
+    "typecheck": "tsc --p .",
+    "build-typecheck": "npm run typecheck && npm run build",
+    "start": "npm run build-typecheck && node ./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "cross-env": "^7.0.3",
+    "typescript": "^4.5.3"
+  }
+}
