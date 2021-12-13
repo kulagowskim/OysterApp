@@ -1,5 +1,10 @@
+import ICard from "./interfaces/ICard";
+import balanceOperations from "./func/balanceOperations.js";
+import cards from "./data/cards.js";
+
 const App = () => {
-  console.log("test")
+  balanceOperations({cardId: "1", type: "debit",value: 20})
+  
 };
 
 App();
