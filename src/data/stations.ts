@@ -1,6 +1,6 @@
 import IStation from "./../interfaces/IStation"
 
-const station: IStation[] = [{
+const stations: IStation[] = [{
   name: "Earl`s Court",
   vehicleType: "bus",
   zone: []
@@ -26,4 +26,4 @@ const station: IStation[] = [{
   zone: [2]
 }];
 
-export default station;
+export default stations;
