@@ -3,6 +3,6 @@ export default interface ICard {
   id: string;
   /** account balance */
   balance: number;
-  /** transactions  */
-  transactions: string[]
+  /** transactions */
+  transactions: string[];
 }
