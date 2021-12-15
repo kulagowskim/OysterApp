@@ -1,21 +1,34 @@
 import balanceOperations from "./func/balanceOperations.js";
 import cards from "./data/cards.js";
-import journey from "./func/journey";
+import entranceGate from "./func/entranceGate.js";
+import exitGate from "./func/exitGate.js";
 import ICard from "./interfaces/ICard";
+import transactions from "./data/transactions.js";
 
 const App = () => {
   const card: ICard | undefined = cards.find(card => card.id === "1")
   balanceOperations({cardId: "1", type: "add", value: 20});
-  console.log("Account recharged: ", card?.balance);
+  console.log(`User 1 account recharged: ${card?.balance} £`);
 
-  journey({cardId: "1", startStation: "Holborn", endStation: "Earl`s Court", vehicleType: "subway" })
-  console.log("Start station: Holborn, End station: Earl`s Court, balance ", card?.balance);
+  entranceGate({ cardId: "1", entranceGateId: "3" });
+  exitGate({ cardId: "1", exitGateId: "4" });
+  console.log(`User 1 card balance ${card?.balance} £`);
+  
+  entranceGate({ cardId: "1", entranceGateId: "1" });
+  exitGate({ cardId: "1", exitGateId: "2" });
+  console.log(`User 1 card balance ${card?.balance} £`);
+  
+  entranceGate({ cardId: "1", entranceGateId: "4" });
+  exitGate({ cardId: "1", exitGateId: "6" });
+  console.log(`User 1 card balance ${card?.balance} £`);
 
-  journey({cardId: "1", startStation: "Earl`s Court", endStation: "Chelsea", vehicleType: "bus" })
-  console.log("Start station: Earl`s Court Bus, End station: Chelsea Bus, balance ", card?.balance);
+  entranceGate({ cardId: "1", entranceGateId: "3" });
+  exitGate({ cardId: "1", exitGateId: "5" });
+  console.log(`User 1 card balance ${card?.balance} £`);
 
-  journey({cardId: "1", startStation: "Earl`s Court", endStation: "Hammershirt", vehicleType: "subway" })
-  console.log("Start station: Earl`s Court Bus, End station: Hammershirt, balance ", card?.balance);
+  console.log("Card 1 transactions", 
+    cards.find(card => card.id === "1")?.transactions.map(transaction => transactions.find(el => el.id === transaction))
+  );
 };
 
 App();
