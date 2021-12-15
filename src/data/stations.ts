@@ -32,4 +32,4 @@ const stations: IStation[] = [{
   zone: [2]
 }];
 
-export default station;
+export default stations;
